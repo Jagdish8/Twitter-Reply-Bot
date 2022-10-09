@@ -12,9 +12,9 @@ api = tweepy.API(auth)
 
 choice = "YES"
 while(choice == "YES"):
-    print("Enter the correct user Name of the persion")
+    print("Enter the correct user ID of the person")
     user = input()
-
+    
     print("Enter the number of tweets you want to reply to")
     count = int(input())
 
