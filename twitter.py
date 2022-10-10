@@ -21,16 +21,17 @@ while(choice == "YES"):
     print("Enter what you want to reply with")
     message = input()
 
-    tweets = api.user_timeline(user,count = count)
+    tweets = api.user_timeline(screen_name=user,count = count)
 
     if(len(tweets) == 0):
         print("No tweets available for the user " + user)
     else:
         for tweet in tweets:
-            api.update_status(message , in_reply_to_status_id = tweet.id)
-            print("Replied ---->" + message + "to --->  https://twitter.com/twitter/statuses/" +  str(tweet.id))
+            api.update_status(status  = message , in_reply_to_status_id = tweet.id, auto_populate_reply_metadata = True)
+            print("Replied ---->" + message + " to --->  https://twitter.com/twitter/statuses/" +  str(tweet.id))
 
     print("Type YES to continue, NO to exit")
+    choice = input()
 
 print("Thank you")
 
